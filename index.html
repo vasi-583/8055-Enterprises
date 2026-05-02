@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ARBAZ — Enterprises</title>
+ <!-- Browser tab icon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- PNG version -->
+  <link rel="icon" type="image/png" sizes="32x32" href="logo.png">
+
+
+  
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Tenor+Sans&family=Josefin+Sans:wght@100;200;300;400&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --cream:    #F8F4EE;
+  --ivory:    #FAF8F3;
+  --parchment:#F0EAD6;
+  --gold:     #B8954A;
+  --gold2:    #D4A85A;
+  --gold3:    #8A6C30;
+  --charcoal: #1A1812;
+  --ink:      #2C2820;
+  --muted:    #7A7060;
+  --border:   #DDD6C4;
+  --border2:  #C8BC9C;
+  --white:    #FFFFFF;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{
+  font-family:'Josefin Sans',sans-serif;
+  background:var(--ivory);
+  color:var(--charcoal);
+  overflow-x:hidden;
+  cursor:default;
+}
+
+/* ─── CUSTOM CURSOR ─── */
+*{cursor:none!important;}
+#cursor{
+  position:fixed;width:10px;height:10px;border-radius:50%;
+  background:var(--gold);pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);transition:transform .1s,width .2s,height .2s,opacity .2s;
+  mix-blend-mode:multiply;
+}
+#cursor-ring{
+  position:fixed;width:36px;height:36px;border-radius:50%;
+  border:1px solid var(--gold);pointer-events:none;z-index:9998;
+  transform:translate(-50%,-50%);transition:transform .18s ease,width .2s,height .2s;
+}
+
+/* ─── TOP BAR ─── */
+.topbar{
+  background:var(--charcoal);
+  color:var(--parchment);
+  text-align:center;
+  padding:9px 24px;
+  font-size:10px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  font-family:'Josefin Sans',sans-serif;
+  font-weight:300;
+}
+
+/* ─── HEADER ─── */
+header{
+  position:sticky;top:0;z-index:200;
+  background:rgba(255, 255, 255, 0.99);;
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.header-inner{
+  max-width:1400px;margin:0 auto;
+  padding:0 48px;height:80px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.logo{
+  display:flex;flex-direction:column;align-items:center;gap:2px;
+  text-decoration:none;
+}
+.logo-main{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem;font-weight:300;letter-spacing:.35em;
+  color:var(--charcoal);text-transform:uppercase;
+  line-height:1;
+}
+.logo-sub{
+  font-size:8px;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--gold);font-weight:300;
+}
+.logo-ornament{
+  display:flex;align-items:center;gap:8px;
+  font-size:10px;letter-spacing:.2em;color:var(--border2);
+}
+.logo-ornament::before,.logo-ornament::after{
+  content:'';display:block;width:40px;height:1px;background:var(--border2);
+}
+.header-right{display:flex;align-items:center;gap:20px;}
+.btn-header{
+  font-family:'Josefin Sans',sans-serif;
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  font-weight:300;color:var(--muted);
+  background:none;border:none;padding:8px 0;
+  border-bottom:1px solid transparent;
+  transition:color .2s,border-color .2s;
+  text-decoration:none;
+}
+.btn-header:hover{color:var(--charcoal);border-color:var(--gold);}
+.btn-contact{
+  padding:10px 28px;
+  border:1px solid var(--charcoal);
+  font-family:'Josefin Sans',sans-serif;
+  font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  font-weight:300;color:var(--charcoal);
+  background:transparent;
+  transition:background .25s,color .25s;
+}
+.btn-contact:hover{background:var(--charcoal);color:var(--ivory);}
+.btn-owner-hdr{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 24px;
+  background:var(--charcoal);
+  font-family:'Josefin Sans',sans-serif;
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  font-weight:300;color:var(--ivory);
+  border:none;
+  transition:background .25s;
+}
+.btn-owner-hdr:hover{background:var(--gold3);}
+.btn-owner-hdr .av{
+  width:24px;height:24px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.3);
+  display:grid;place-items:center;font-size:12px;
+}
+
+/* ─── HERO ─── */
+.hero{
+  position:relative;
+  min-height:92vh;
+  display:flex;align-items:center;
+  overflow:hidden;
+  background:var(--charcoal);
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background-image:url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1800&auto=format&fit=crop&q=80');
+  background-size:cover;background-position:center;
+  opacity:.28;
+  transform:scale(1.04);
+  animation:heroZoom 12s ease-in-out infinite alternate;
+}
+@keyframes heroZoom{from{transform:scale(1.04);}to{transform:scale(1.12);}}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(26,24,18,.7) 0%,rgba(26,24,18,.3) 60%,transparent 100%);
+}
+.hero-content{
+  position:relative;z-index:2;
+  max-width:1400px;margin:0 auto;padding:0 80px;
+  width:100%;
+}
+.hero-eyebrow{
+  display:flex;align-items:center;gap:16px;
+  font-size:10px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--gold2);font-weight:300;margin-bottom:28px;
+  animation:fadeUp .8s ease .2s both;
+}
+.hero-eyebrow::before{content:'';display:block;width:50px;height:1px;background:var(--gold);}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.5rem,7vw,7rem);
+  font-weight:300;line-height:1;
+  color:var(--cream);
+  margin-bottom:8px;
+  animation:fadeUp .9s ease .35s both;
+}
+.hero h1 em{font-style:italic;color:var(--gold2);}
+.hero-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.1rem,2.2vw,1.6rem);
+  font-weight:300;font-style:italic;
+  color:rgba(248,244,238,.55);
+  margin-bottom:44px;
+  max-width:520px;
+  line-height:1.6;
+  animation:fadeUp .9s ease .45s both;
+}
+.hero-actions{
+  display:flex;align-items:center;gap:20px;
+  animation:fadeUp .9s ease .55s both;
+}
+.btn-hero-primary{
+  padding:16px 44px;
+  background:var(--gold);
+  font-family:'Josefin Sans',sans-serif;
+  font-size:10px;letter-spacing:.25em;text-transform:uppercase;
+  font-weight:300;color:var(--charcoal);border:none;
+  transition:background .25s,transform .2s;
+  display:inline-block;text-decoration:none;
+}
+.btn-hero-primary:hover{background:var(--gold2);transform:translateY(-2px);}
+.btn-hero-outline{
+  padding:15px 44px;
+  border:1px solid rgba(248,244,238,.4);
+  font-family:'Josefin Sans',sans-serif;
+  font-size:10px;letter-spacing:.25em;text-transform:uppercase;
+  font-weight:300;color:var(--cream);background:transparent;
+  transition:border-color .25s,color .25s,transform .2s;
+  text-decoration:none;display:inline-block;
+}
+.btn-hero-outline:hover{border-color:var(--gold);color:var(--gold2);transform:translateY(-2px);}
+.hero-scroll{
+  position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  font-size:9px;letter-spacing:.25em;color:var(--gold);text-transform:uppercase;
+  animation:fadeIn 1s ease 1.2s both;
+}
+.scroll-line{width:1px;height:60px;background:linear-gradient(var(--gold),transparent);animation:scrollPulse 2s ease infinite;}
+@keyframes scrollPulse{0%,100%{opacity:.3;}50%{opacity:1;}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+/* ─── MARQUEE ─── */
+.marquee-wrap{
+  background:var(--gold);
+  overflow:hidden;padding:14px 0;
+}
+.marquee-track{
+  display:flex;gap:0;
+  animation:marquee 30s linear infinite;
+  white-space:nowrap;
+}
+.marquee-track span{
+  font-size:10px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--charcoal);padding:0 40px;font-weight:300;
+}
+.marquee-dot{color:var(--charcoal);opacity:.5;}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ─── SECTION LABELS ─── */
+.section-label{
+  display:flex;align-items:center;gap:16px;
+  font-size:9px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--gold);font-weight:300;margin-bottom:16px;
+}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+
+/* ─── STATS STRIP ─── */
+.stats-strip{
+  background:var(--charcoal);
+  padding:60px 48px;
+}
+.stats-inner{
+  max-width:1400px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;
+}
+.stat-item{
+  text-align:center;
+  padding:24px 32px;
+  border-right:1px solid rgba(255,255,255,.08);
+}
+.stat-item:last-child{border-right:none;}
+.stat-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3.2rem;font-weight:300;
+  color:var(--gold2);line-height:1;
+  margin-bottom:8px;
+}
+.stat-label{
+  font-size:9px;letter-spacing:.25em;text-transform:uppercase;
+  color:rgba(248,244,238,.4);font-weight:300;
+}
+
+/* ─── COLLECTION SECTION ─── */
+.collection{
+  padding:100px 48px;
+  max-width:1400px;margin:0 auto;
+}
+.collection-header{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:40px;align-items:end;
+  margin-bottom:60px;
+}
+.collection-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,3.5vw,3.2rem);
+  font-weight:300;line-height:1.15;
+  color:var(--charcoal);
+}
+.collection-title em{font-style:italic;color:var(--gold3);}
+.collection-desc{
+  font-size:12px;letter-spacing:.06em;
+  color:var(--muted);line-height:1.9;font-weight:300;
+  padding-bottom:4px;
+}
+
+/* ─── FILTER TABS ─── */
+.filter-wrap{
+  margin-bottom:56px;
+  padding:0 48px;
+  max-width:1400px;
+  margin-left:auto;margin-right:auto;
+  margin-bottom:0;
+}
+.filter-inner{
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:0;
+  display:flex;gap:0;overflow-x:auto;
+  scrollbar-width:none;
+}
+.filter-inner::-webkit-scrollbar{display:none;}
+.filt{
+  padding:18px 28px;
+  font-family:'Josefin Sans',sans-serif;
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  font-weight:300;color:var(--muted);
+  background:none;border:none;
+  border-bottom:2px solid transparent;
+  transition:all .2s;
+  white-space:nowrap;
+  position:relative;top:1px;
+}
+.filt:hover,.filt.active{color:var(--charcoal);border-bottom-color:var(--gold);}
+.filt.active{font-weight:400;}
+
+/* ─── PRODUCTS GRID ─── */
+.grid-wrap{
+  max-width:1400px;margin:0 auto;
+  padding:56px 48px 100px;
+}
+.grid-info{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:36px;
+}
+.grid-count{
+  font-size:11px;letter-spacing:.15em;color:var(--muted);font-weight:300;
+  text-transform:uppercase;
+}
+.products-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:32px 28px;
+}
+.product-card{
+  background:transparent;
+  position:relative;
+  overflow:hidden;
+}
+.product-card.hidden{display:none;}
+.card-img-wrap{
+  position:relative;overflow:hidden;
+  aspect-ratio:3/4;
+  background:var(--parchment);
+  margin-bottom:18px;
+}
+.card-img-wrap::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(26,24,18,.6) 0%,transparent 50%);
+  opacity:0;transition:opacity .4s;
+}
+.product-card:hover .card-img-wrap::after{opacity:1;}
+.card-img-wrap img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .7s cubic-bezier(.25,.46,.45,.94);
+}
+.product-card:hover .card-img-wrap img{transform:scale(1.08);}
+.card-badge{
+  position:absolute;top:16px;left:16px;z-index:2;
+  font-size:8px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ivory);background:var(--charcoal);
+  padding:5px 12px;font-weight:300;
+}
+.card-hover-cta{
+  position:absolute;bottom:20px;left:50%;transform:translateX(-50%) translateY(10px);
+  z-index:3;opacity:0;
+  transition:all .3s;
+  white-space:nowrap;
+  background:var(--gold);color:var(--charcoal);
+  font-size:9px;letter-spacing:.22em;text-transform:uppercase;
+  padding:10px 26px;font-weight:300;border:none;
+  font-family:'Josefin Sans',sans-serif;
+}
+.product-card:hover .card-hover-cta{opacity:1;transform:translateX(-50%) translateY(0);}
+.card-info{padding:0 4px;}
+.card-cat{
+  font-size:9px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold3);font-weight:300;margin-bottom:6px;
+}
+.card-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.15rem;font-weight:400;
+  color:var(--charcoal);line-height:1.35;
+  margin-bottom:10px;
+}
+.card-bottom{
+  display:flex;align-items:center;justify-content:space-between;
+}
+.card-price{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;font-weight:500;
+  color:var(--gold3);
+}
+.card-price small{
+  font-family:'Josefin Sans',sans-serif;
+  font-size:9px;letter-spacing:.15em;
+  color:var(--muted);font-weight:300;margin-right:4px;
+}
+.card-link{
+  font-size:9px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--muted);font-weight:300;
+  border-bottom:1px solid var(--border);
+  padding-bottom:2px;
+  transition:color .2s,border-color .2s;
+  background:none;border-top:none;border-left:none;border-right:none;
+}
+.card-link:hover{color:var(--charcoal);border-color:var(--charcoal);}
+
+/* ─── FEATURE STRIP ─── */
+.feature-strip{
+  background:var(--parchment);
+  padding:80px 48px;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.feature-inner{
+  max-width:1400px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:48px;
+}
+.feature-item{text-align:center;}
+.feature-icon{
+  font-size:2rem;margin-bottom:16px;
+  display:block;
+}
+.feature-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.15rem;font-weight:400;
+  color:var(--charcoal);margin-bottom:8px;
+}
+.feature-text{
+  font-size:11px;letter-spacing:.05em;
+  color:var(--muted);line-height:1.85;font-weight:300;
+}
+
+/* ─── FULL-WIDTH EDITORIAL ─── */
+.editorial{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:600px;
+  overflow:hidden;
+}
+.editorial-img{
+  position:relative;overflow:hidden;
+}
+.editorial-img img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .9s ease;
+}
+.editorial:hover .editorial-img img{transform:scale(1.04);}
+.editorial-content{
+  background:var(--charcoal);
+  display:flex;flex-direction:column;justify-content:center;
+  padding:80px 72px;
+}
+.editorial-eyebrow{
+  font-size:9px;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:24px;font-weight:300;
+}
+.editorial-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,3vw,3rem);
+  font-weight:300;line-height:1.2;
+  color:var(--cream);margin-bottom:20px;
+}
+.editorial-title em{font-style:italic;color:var(--gold2);}
+.editorial-text{
+  font-size:12px;letter-spacing:.04em;
+  color:rgba(248,244,238,.5);line-height:2;
+  font-weight:300;margin-bottom:36px;
+  max-width:400px;
+}
+.btn-editorial{
+  display:inline-flex;align-items:center;gap:14px;
+  font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold2);font-weight:300;background:none;border:none;padding:0;
+  transition:gap .25s;
+}
+.btn-editorial:hover{gap:20px;}
+.btn-editorial::after{content:'→';font-size:14px;}
+
+/* ─── SOCIAL ─── */
+.social-section{
+  background:var(--ivory);
+  padding:80px 48px;
+  text-align:center;
+}
+.social-section .section-label{justify-content:center;margin-bottom:40px;}
+.social-section .section-label::before,.social-section .section-label::after{content:'';flex:none;width:60px;height:1px;background:var(--border);}
+.social-btns{display:flex;justify-content:center;gap:16px;margin-bottom:32px;}
+.btn-social-lux{
+  display:flex;align-items:center;gap:10px;
+  padding:14px 36px;
+  border:1px solid var(--border2);
+  font-family:'Josefin Sans',sans-serif;
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  font-weight:300;color:var(--charcoal);background:transparent;
+  transition:all .25s;text-decoration:none;
+}
+.btn-social-lux:hover{background:var(--charcoal);color:var(--cream);border-color:var(--charcoal);}
+.social-handle{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem;font-style:italic;
+  color:var(--muted);
+}
+
+/* ─── FOOTER ─── */
+footer{
+  background:var(--charcoal);
+  padding:72px 48px 48px;
+}
+.footer-inner{
+  max-width:1400px;margin:0 auto;
+}
+.footer-top{
+  display:grid;grid-template-columns:2fr 1fr 1fr;
+  gap:60px;padding-bottom:56px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  margin-bottom:40px;
+}
+.footer-brand .logo-main{color:var(--cream);font-size:1.8rem;}
+.footer-brand .logo-sub{color:var(--gold2);}
+.footer-brand .logo-ornament{color:rgba(200,188,156,.3);}
+.footer-brand .logo-ornament::before,.footer-brand .logo-ornament::after{background:rgba(200,188,156,.3);}
+.footer-tagline{
+  font-size:11px;letter-spacing:.06em;
+  color:rgba(248,244,238,.35);
+  line-height:1.9;margin-top:20px;
+  font-weight:300;max-width:320px;
+}
+.footer-col h4{
+  font-size:9px;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--gold2);margin-bottom:20px;font-weight:300;
+}
+.footer-col p,.footer-col address{
+  font-size:11px;letter-spacing:.04em;
+  color:rgba(248,244,238,.38);line-height:2;
+  font-weight:300;font-style:normal;
+}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+}
+.footer-copy{
+  font-size:10px;letter-spacing:.12em;
+  color:rgba(248,244,238,.2);font-weight:300;
+}
+.footer-dev{
+  font-size:10px;letter-spacing:.12em;
+  color:rgba(248,244,238,.2);font-weight:300;
+}
+.footer-dev a{color:var(--gold3);text-decoration:none;transition:color .2s;}
+.footer-dev a:hover{color:var(--gold2);}
+
+/* ─── OWNER MODAL ─── */
+.overlay{
+  position:fixed;inset:0;
+  background:rgba(26,24,18,.75);
+  backdrop-filter:blur(10px);
+  z-index:500;
+  display:grid;place-items:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .35s;
+}
+.overlay.open{opacity:1;pointer-events:all;}
+.modal{
+  background:var(--ivory);
+  max-width:400px;width:calc(100% - 48px);
+  padding:0;overflow:hidden;
+  position:relative;
+  transform:translateY(30px);
+  transition:transform .35s;
+}
+.overlay.open .modal{transform:translateY(0);}
+.modal-img-band{
+  height:160px;
+  background:linear-gradient(135deg,var(--charcoal),var(--ink));
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;position:relative;
+}
+.modal-img-band img{
+  width:100%;height:275%;object-fit:cover;opacity:.6;
+  position:absolute;inset:0;
+}
+.modal-img-band .modal-av{
+  position:relative;z-index:2;
+  width:80px;height:80px;border-radius:50%;
+  border:2px solid var(--gold);
+  overflow:hidden;background:var(--charcoal);
+  display:grid;place-items:center;font-size:2rem;
+}
+.modal-img-band .modal-av img{width:100%;height:160%;object-fit:cover;opacity:1;}
+.modal-body{padding:28px 32px 32px;}
+.modal-eyebrow{
+  font-size:9px;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--gold3);margin-bottom:6px;font-weight:300;
+}
+.modal-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.7rem;font-weight:300;
+  color:var(--charcoal);margin-bottom:4px;
+}
+.modal-title{
+  font-size:11px;letter-spacing:.08em;
+  color:var(--muted);margin-bottom:24px;font-weight:300;
+}
+.modal-divider{height:1px;background:var(--border);margin:0 0 20px;}
+.modal-rows{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;}
+.modal-row{
+  display:flex;gap:12px;align-items:flex-start;
+  font-size:12px;letter-spacing:.03em;color:var(--muted);
+  line-height:1.5;font-weight:300;
+}
+.modal-row .ico{color:var(--gold);font-size:14px;flex-shrink:0;margin-top:1px;}
+.modal-social{display:flex;gap:10px;}
+.btn-modal-social{
+  flex:1;padding:11px;text-align:center;
+  font-size:9px;letter-spacing:.2em;text-transform:uppercase;
+  font-weight:300;font-family:'Josefin Sans',sans-serif;
+  text-decoration:none;border:1px solid var(--border2);
+  color:var(--charcoal);background:transparent;
+  transition:all .2s;
+}
+.btn-modal-social:hover{background:var(--charcoal);color:var(--cream);border-color:var(--charcoal);}
+.modal-close{
+  position:absolute;top:14px;right:14px;z-index:10;
+  width:32px;height:32px;border-radius:50%;
+  background:rgba(26,24,18,.5);border:1px solid rgba(255,255,255,.15);
+  display:grid;place-items:center;
+  font-size:14px;color:#fff;
+}
+.modal-close:hover{background:rgba(26,24,18,.8);}
+
+/* ─── LIGHTBOX ─── */
+.lightbox{
+  position:fixed;inset:0;
+  background:rgba(26,24,18,.92);
+  backdrop-filter:blur(14px);
+  z-index:600;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s;
+}
+.lightbox.open{opacity:1;pointer-events:all;}
+.lb-inner{
+  display:grid;grid-template-columns:1fr 380px;
+  max-width:960px;width:calc(100% - 48px);
+  max-height:88vh;
+  background:var(--ivory);
+  overflow:hidden;
+  transform:scale(.95);transition:transform .3s;
+}
+.lightbox.open .lb-inner{transform:scale(1);}
+.lb-img-wrap{overflow:hidden;}
+.lb-img-wrap img{width:100%;height:100%;object-fit:cover;}
+.lb-details{
+  padding:48px 36px;
+  display:flex;flex-direction:column;justify-content:center;
+  border-left:1px solid var(--border);
+}
+.lb-eyebrow{
+  font-size:9px;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--gold3);margin-bottom:14px;font-weight:300;
+}
+.lb-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.7rem;font-weight:300;
+  color:var(--charcoal);line-height:1.25;
+  margin-bottom:24px;
+}
+.lb-price-label{
+  font-size:9px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:6px;font-weight:300;
+}
+.lb-price{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.2rem;font-weight:400;
+  color:var(--charcoal);margin-bottom:32px;
+}
+.lb-divider{height:1px;background:var(--border);margin-bottom:28px;}
+.lb-enquire{
+  padding:14px 28px;
+  background:var(--charcoal);
+  font-family:'Josefin Sans',sans-serif;
+  font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  font-weight:300;color:var(--ivory);border:none;
+  width:100%;margin-bottom:12px;
+  transition:background .25s;
+}
+.lb-enquire:hover{background:var(--gold3);}
+.lb-close{
+  position:fixed;top:24px;right:24px;
+  width:44px;height:44px;
+  background:rgba(248,244,238,.1);
+  border:1px solid rgba(248,244,238,.2);
+  border-radius:50%;
+  display:grid;place-items:center;
+  font-size:18px;color:var(--cream);
+  transition:background .2s;z-index:10;
+}
+.lb-close:hover{background:rgba(248,244,238,.2);}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  .header-inner{padding:0 24px;}
+  .hero-content{padding:0 32px;}
+  .collection{padding:60px 24px;}
+  .filter-wrap{padding:0 24px;}
+  .grid-wrap{padding:40px 24px 80px;}
+  .products-grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:24px 16px;}
+  .stats-inner{grid-template-columns:repeat(2,1fr);}
+  .editorial{grid-template-columns:1fr;}
+  .editorial-content{padding:48px 32px;}
+  .footer-top{grid-template-columns:1fr;gap:32px;}
+  .lb-inner{grid-template-columns:1fr;}
+  .lb-img-wrap{height:280px;}
+  .feature-inner{grid-template-columns:1fr;}
+  .collection-header{grid-template-columns:1fr;}
+  .social-btns{flex-direction:column;align-items:center;}
+  .footer-bottom{flex-direction:column;gap:8px;}
+  .btn-social-lux{width:260px;justify-content:center;}
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+}
+</style>
+</head>
+<body>
+
+
+
+
+<!-- gaur se kya dekh rha hai bhadwe -->
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- TOP BAR -->
+<div class="topbar"> &nbsp; Premium Quality Guaranteed &nbsp;·&nbsp; Visit Us at Loha Road Palam</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      
+      <div class="logo-main">Arbaz</div>
+      <div class="logo-sub">Enterprises · Palam, Parbhani</div>
+    </a>
+    <div class="header-right">
+      <a href="https://www.instagram.com/arbaz_khan_8055_?igsh=MTAwcWxxem1sbms2MA==" target="_blank" class="btn-header">Instagram</a>
+      <a href="https://www.facebook.com/share/1Dod2AdbKa/" target="_blank" class="btn-header">Facebook</a>
+      <button class="btn-owner-hdr" onclick="openOwner()">
+        <div class="av">◎</div>
+        Meet the Owner
+      </button>
+    </div>
+  </div>
+</header>
+
+    <!-- itna dekhega lol -->
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Premium Home & Living Collection 2026</div>
+    <h1>Where Fine Living<br/><em>Begins at Home</em></h1>
+    <div class="hero-sub">Curated furniture, appliances &amp; home essentials — crafted with uncompromising quality for the discerning home.</div>
+    <div class="hero-actions">
+      <!-- <a href="#collection" class="btn-hero-primary">Explore Collection</a>
+      <a href="#contact" class="btn-hero-outline">Visit Our Showroom</a> -->
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Luxury Beds</span><span class="marquee-dot">◆</span>
+    <span>Steel Almirahs</span><span class="marquee-dot">◆</span>
+    <span>Premium Sofas</span><span class="marquee-dot">◆</span>
+    <span>Air Coolers</span><span class="marquee-dot">◆</span>
+    <span>Refrigerators</span><span class="marquee-dot">◆</span>
+    <span>Washing Machines</span><span class="marquee-dot">◆</span>
+    <span>Dressing Tables</span><span class="marquee-dot">◆</span>
+    <span>Kitchen Cabinets</span><span class="marquee-dot">◆</span>
+    <span>Luxury Beds</span><span class="marquee-dot">◆</span>
+    <span>Steel Almirahs</span><span class="marquee-dot">◆</span>
+    <span>Premium Sofas</span><span class="marquee-dot">◆</span>
+    <span>Air Coolers</span><span class="marquee-dot">◆</span>
+    <span>Refrigerators</span><span class="marquee-dot">◆</span>
+    <span>Washing Machines</span><span class="marquee-dot">◆</span>
+    <span>Dressing Tables</span><span class="marquee-dot">◆</span>
+    <span>Kitchen Cabinets</span><span class="marquee-dot">◆</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num">150+</div>
+      <div class="stat-label">Products In-Store</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Delivary Services </div>
+      <div class="stat-label">Charges may Apply</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">150+ & Counting</div>
+      <div class="stat-label">Happy Families</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">Premium Brands</div>
+    </div>
+  </div>
+</div>
+
+<!-- FILTERS -->
+<div class="filter-wrap">
+  <div class="filter-inner" id="filters">
+    <button class="filt active" onclick="filterProducts('all',this)">All Pieces</button>
+    <button class="filt" onclick="filterProducts('bed',this)">Beds & Headboards</button>
+    <button class="filt" onclick="filterProducts('almirah',this)">Almirahs</button>
+    <button class="filt" onclick="filterProducts('sofa',this)">Sofa Sets</button>
+    <button class="filt" onclick="filterProducts('showcase',this)">Showcases & Dressing</button>
+    <button class="filt" onclick="filterProducts('cooler',this)">Air Coolers</button>
+    <button class="filt" onclick="filterProducts('fridge',this)">Refrigerators</button>
+    <button class="filt" onclick="filterProducts('washing',this)">Washing Machines</button>
+    <button class="filt" onclick="filterProducts('chair',this)">Chairs</button>
+  </div>
+</div>
+
+<!-- PRODUCTS GRID -->
+<div class="grid-wrap">
+  <div class="grid-info">
+    <div class="grid-count" id="product-count">Showing 30 Pieces</div>
+  </div>
+  <div class="products-grid" id="products-grid">
+
+    <!-- SHOWCASE / DRESSING -->
+    <div class="product-card" data-cat="showcase" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Showcase</span>
+        <img src="/images/wooden.png" alt="Wooden Dressing Table"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Dressing Table</div>
+        <div class="card-name">Wooden Dressing Table with Mirror (Rosewood)</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 8,500</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- COOLERS -->
+    <div class="product-card" data-cat="cooler" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Air Cooler</span>
+        <img src="/images/aircooler.png" alt="Air Cooler Purple"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Air Cooler</div>
+        <div class="card-name">IKIA Cool Land Air Cooler – Lilac Purple</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 5,200</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="cooler" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Air Cooler</span>
+        <img src="/images/airgolden.png" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=80'" alt="Air Cooler Commercial"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Air Cooler</div>
+        <div class="card-name">IKIA Cool Land Commercial Air Cooler – Golden Brown</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 6,500</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- KITCHEN SHOWCASE -->
+    <div class="product-card" data-cat="showcase" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Cabinet</span>
+        <img src="/images/blackshowcase.png" alt="Kitchen Showcase"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat"> Cabinet</div>
+        <div class="card-name">Black Showcase Cabinet with Mirror Doors</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 12,000</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- V-CHILL COOLER -->
+    <div class="product-card" data-cat="cooler" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Air Cooler</span>
+        <img src="/images/vchill.png" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=80'" alt="V-Chill Air Cooler"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Air Cooler</div>
+        <div class="card-name">V-CHILL Air Cooler – White/Graphite</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 4,800</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- WASHING MACHINE -->
+    <div class="product-card" data-cat="washing" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Washing Machine</span>
+        <img src="/images/washing.png" alt="Washing Machine"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Washing Machine</div>
+        <div class="card-name">Haier Semi-Automatic Top Load Washing Machine</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 9,800</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- REFRIGERATORS -->
+    <div class="product-card" data-cat="fridge" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Refrigerator</span>
+        <img src="/images/fridge.png" alt="Godrej Refrigerator"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Refrigerator</div>
+        <div class="card-name">Godrej Single Door Refrigerator – Maroon Floral Print</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 14,500</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="fridge" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Refrigerator</span>
+        <img src="/images/fridge2.png" alt="Haier Refrigerator"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Refrigerator</div>
+        <div class="card-name">Haier Single Door Refrigerator – Blue Daisy Print</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 13,800</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHAIRS -->
+    <div class="product-card" data-cat="chair" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Seating</span>
+        <img src="/images/chair.png" alt="Chairs"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Chairs</div>
+        <div class="card-name">Resto Furniture Heavy-Duty Plastic Armchair (Set of 6)</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 3,600</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ALMIRAHS -->
+    <div class="product-card" data-cat="almirah" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Steel Almirah</span>
+        <img src="/images/almirah1.png" alt="Steel Almirah Floral"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Steel Almirah</div>
+        <div class="card-name">Steel Almirah 2-Door – Black & White Floral Design</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 11,500</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="almirah" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Steel Almirah</span>
+        <img src="/images/almirah2.png" alt="Steel Almirah Black Mirror"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Steel Almirah</div>
+        <div class="card-name">Steel Almirah 2-Door – Matte Black with Full Mirror</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 10,800</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="almirah" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Steel Almirah</span>
+        <img src="/images/almirah3.png" onerror="this.src='https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&auto=format&fit=crop&q=80'" alt="3-Door Almirah"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Steel Almirah</div>
+        <div class="card-name">Steel Almirah 3-Door – Black with Centre Mirror</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 13,500</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- BED -->
+    <div class="product-card" data-cat="bed" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Wooden Bed</span>
+        <img src="/images/bed.png" alt="Wooden Bed Classic"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Wooden Bed</div>
+        <div class="card-name">Wooden Bed with Carved Headboard – Classic Brown</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 18,000</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="almirah" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Steel Almirah</span>
+        <img src="/images/almirah4.png" alt="Steel Almirah Royal Blue"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Steel Almirah</div>
+        <div class="card-name">Steel Almirah 2-Door – Royal Blue with Mirror</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 11,000</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="almirah" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Steel Almirah</span>
+        <img src="/images/almirah5.png" alt="Steel Almirah Grey 3-Door"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Steel Almirah</div>
+        <div class="card-name">Steel Almirah 3-Door – Slate Grey with Mirror</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 14,000</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="almirah" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Steel Almirah</span>
+        <img src="/images/almirah6.png" alt="Steel Almirah Navy Blue"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Steel Almirah</div>
+        <div class="card-name">Steel Almirah 2-Door – Navy Blue with Mirror Panels</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 11,200</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="almirah" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Steel Almirah</span>
+        <img src="/images/almirah7.png" alt="Ladies Special Almirah"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Steel Almirah · Ladies Special</div>
+        <div class="card-name">Steel Almirah 3-Door – Lavender Pink</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 13,800</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOFA SETS -->
+    <div class="product-card" data-cat="sofa" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Sofa Set</span>
+        <img src="/images/sofa.png" alt="Wooden Sofa Set Teak"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Sofa Set</div>
+        <div class="card-name">Traditional Carved Wooden Sofa Set – Teak Finish</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 32,000</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="almirah" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Steel Almirah</span>
+        <img src="/images/almirah8.png" alt="Dark Wenge Almirah"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Steel Almirah</div>
+        <div class="card-name">Steel Almirah 3-Door – Dark Wenge with Mirror</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 13,200</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- BEDS continued -->
+    <div class="product-card" data-cat="bed" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Wooden Bed</span>
+        <img src="/images/bed2.png" alt="Floral Carved Bed"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Wooden Bed</div>
+        <div class="card-name">Wooden Bed – Hand-Painted Floral Carved Headboard</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 22,000</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="almirah" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Steel Almirah</span>
+        <img src="/images/almirah9.png" alt="Glossy Black Almirah"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Steel Almirah</div>
+        <div class="card-name">Steel Almirah 3-Door – Glossy Black with Floral Etching</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 14,500</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="almirah" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Steel Almirah</span>
+        <img src="/images/almirah10.png" alt="Baby Pink Almirah"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Steel Almirah</div>
+        <div class="card-name">Steel Almirah 3-Door – Baby Pink with Mirror</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 13,000</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="bed" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Luxury Bed</span>
+        <img src="/images/bed3.png" alt="Black Luxury Bed"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Luxury Bed</div>
+        <div class="card-name">Black Luxury Wooden Bed with Quilted Headboard</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 28,000</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="sofa" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Sofa Set</span>
+        <img src="/images/sofa2.png" alt="Traditional Sofa Set"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Sofa Set · 3+1+1</div>
+        <div class="card-name">Traditional Wooden Sofa Set – Carved Floral (3+1+1)</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 35,000</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="bed" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Royal Bed</span>
+        <img src="/images/bed4.png" alt="Gold Ornate Bed"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Royal Bed</div>
+        <div class="card-name">Royal Ornate Wooden Bed – Golden Carved Finish</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 38,000</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="bed" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Wooden Bed</span>
+        <img src="/images/bed5.png" alt="Traditional Art Bed"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Wooden Bed</div>
+        <div class="card-name">Wooden Bed – Colourful Traditional Art Design</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 20,000</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="bed" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Designer Bed</span>
+        <img src="/images/bed6.png" alt="Black Wooden Bed"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Designer Bed</div>
+        <div class="card-name">Black Wooden Bed with Blue Floral Glass Inlay</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 30,000</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="bed" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Wooden Bed</span>
+        <img src="/images/bed7.png" alt="Traditional Double Bed"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Wooden Bed</div>
+        <div class="card-name">Traditional Double Bed with Carved Headboard</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 24,000</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="bed" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">LED Luxury Bed</span>
+        <img src="/images/bed8.png" alt="LED Luxury Bed"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">LED Luxury Bed</div>
+        <div class="card-name">LED Luxury Bed – Black & White with Glowing Inlay</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 42,000</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="bed" onclick="openLightbox(this)">
+      <div class="card-img-wrap">
+        <span class="card-badge">Premium Bed</span>
+        <img src="/images/bed9.png" alt="Premium Hand-Carved Bed"/>
+        <button class="card-hover-cta">View Details</button>
+      </div>
+      <div class="card-info">
+        <div class="card-cat">Premium Bed</div>
+        <div class="card-name">Ornate Hand-Carved Wooden Double Bed – Premium Finish</div>
+        <div class="card-bottom">
+          <div class="card-price"><small>From</small>₹ 35,000</div>
+          <button class="card-link">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- EDITORIAL -->
+<div class="editorial">
+  <div class="editorial-img">
+    <img src="/images/ac.png" alt="Showroom Interior"/>
+  </div>
+  <div class="editorial-content">
+    <div class="editorial-eyebrow">Our Showroom · Palam, Parbhani</div>
+    <div class="editorial-title">Experience the<br/><em>Art of Fine Living</em></div>
+    <p class="editorial-text">Step into our world. Our Palam showroom is a curated space where you can touch, feel and experience every piece before it graces your home. Our knowledgeable team will guide you through every selection.</p>
+    <button class="btn-editorial">Visit Our Showroom</button>
+  </div>
+</div>
+
+<!-- FEATURE STRIP -->
+<div class="feature-strip">
+  <div class="feature-inner">
+    <div class="feature-item">
+      <span class="feature-icon">🚚</span>
+      <div class="feature-title">Delivery Service</div>
+      <p class="feature-text">Delivery and professional setup throughout Parbhani district. We bring quality to your doorstep. Chrges may apply</p>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">🛡</span>
+      <div class="feature-title">Quality Guarantee</div>
+      <p class="feature-text">Every product carries our personal guarantee. according to the T&C.</p>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">✦</span>
+      <div class="feature-title">Expert Guidance</div>
+      <p class="feature-text">Expertise means we help you choose not just what looks good, but what's perfect for your home.</p>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="logo" style="align-items:flex-start;">
+          <div class="logo-ornament" style="font-size:9px;letter-spacing:.18em;color:rgba(200,188,156,.3);"> /</div>
+          <div class="logo-main">Arbaz</div>
+          <div class="logo-sub">Enterprises</div>
+        </a>
+        <p class="footer-tagline">Premium home furniture and appliances, lovingly curated for families in Palam , Parbhani and beyond. Quality you can see, feel, and live with every day.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Collections</h4>
+        <p>Wooden Beds<br/>Steel Almirahs<br/>Sofa Sets<br/>Air Coolers<br/>Refrigerators<br/>Washing Machines</p>
+      </div>
+      <div class="footer-col">
+        <h4>Visit Us</h4>
+        <address>
+          Loha Road Palam<br/>
+          Tq. Palam, Dist. Parbhani<br/>
+          Maharashtra<br/><br/>
+          Mon – Sat: 9am – 8pm<br/>
+          Sunday: 10am – 6pm
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-dev">Crafted by <a href="www.instagram/vasiii_2212">Vasiulla Pathan</a> </div>
+      <div class="footer-copy">ig:-VASIII_2212</div>
+    </div>
+  </div>
+</footer>
+
+<!-- OWNER MODAL -->
+<div class="overlay" id="ownerOverlay" onclick="closeOwner(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeOwner(null,true)">✕</button>
+    <div class="modal-img-band">
+      <img src="owner.jpeg" alt="Showroom"/>
+      <div class="modal-av">
+        <img src="owner.jpeg" alt="Arbaaz Khan" onerror="this.style.display='none';this.parentElement.innerHTML='👤';">
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-eyebrow">Proprietor</div>
+      <div class="modal-name">Arbaaz Khan</div>
+      <div class="modal-title">ARBAZ ENTERPRISES · Palam, Parbhani</div>
+      <div class="modal-divider"></div>
+      <div class="modal-rows">
+        <div class="modal-row">
+          <span class="ico">◎</span>
+          <span>Loha Road Palam, Tq. Palam, Dist. Parbhani, Maharashtra</span>
+        </div>
+        <div class="modal-row">
+          <span class="ico">◈</span>
+          <span>Furniture · Electronics · Home Appliances</span>
+        </div>
+      </div>
+      <div class="modal-social">
+        <a class="btn-modal-social" href="https://www.instagram.com/arbaz_khan_8055_?igsh=MTAwcWxxem1sbms2MA==" target="_blank">Instagram</a>
+        <a class="btn-modal-social" href="https://www.facebook.com/share/1Dod2AdbKa/" target="_blank">Facebook</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lb-close" onclick="closeLightbox(null,true)">✕</button>
+  <div class="lb-inner" id="lb-inner">
+    <div class="lb-img-wrap">
+      <img id="lb-img" src="" alt=""/>
+    </div>
+    <div class="lb-details">
+      <div class="lb-eyebrow" id="lb-cat"></div>
+      <div class="lb-name" id="lb-name"></div>
+      <div class="lb-divider"></div>
+      <div class="lb-price-label">Starting Price</div>
+      <div class="lb-price" id="lb-price"></div>
+      <button class="lb-enquire">Enquire About This Piece</button>
+      <div style="font-size:10px;letter-spacing:.12em;color:var(--muted);text-align:center;font-weight:300;">Contact our team for availability &amp; customisation</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Custom cursor
+const cur = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cur.style.left=mx+'px';cur.style.top=my+'px';
+});
+(function animRing(){
+  rx+=(mx-rx)*.14;ry+=(my-ry)*.14;
+  ring.style.left=rx+'px';ring.style.top=ry+'px';
+  requestAnimationFrame(animRing);
+})();
+document.querySelectorAll('button,a,.product-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{
+    cur.style.width='6px';cur.style.height='6px';
+    ring.style.width='52px';ring.style.height='52px';
+  });
+  el.addEventListener('mouseleave',()=>{
+    cur.style.width='10px';cur.style.height='10px';
+    ring.style.width='36px';ring.style.height='36px';
+  });
+});
+
+// Filter
+function filterProducts(cat,btn){
+  document.querySelectorAll('.filt').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const cards=document.querySelectorAll('.product-card');
+  let n=0;
+  cards.forEach(c=>{
+    const show=cat==='all'||c.dataset.cat===cat;
+    c.classList.toggle('hidden',!show);
+    if(show)n++;
+  });
+  document.getElementById('product-count').textContent='Showing '+n+' Piece'+(n!==1?'s':'');
+}
+
+// Owner modal
+function openOwner(){document.getElementById('ownerOverlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeOwner(e,force){
+  if(force||(e&&e.target===e.currentTarget)){
+    document.getElementById('ownerOverlay').classList.remove('open');
+    document.body.style.overflow='';
+  }
+}
+
+// Lightbox
+function openLightbox(card){
+  const img=card.querySelector('img');
+  const name=card.querySelector('.card-name').textContent;
+  const price=card.querySelector('.card-price').textContent.replace('From','').trim();
+  const cat=card.querySelector('.card-cat').textContent;
+  document.getElementById('lb-img').src=img.src;
+  document.getElementById('lb-img').alt=img.alt;
+  document.getElementById('lb-name').textContent=name;
+  document.getElementById('lb-price').textContent=price;
+  document.getElementById('lb-cat').textContent=cat;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(e,force){
+  if(force||(e&&e.target===e.currentTarget)){
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow='';
+  }
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){closeOwner(null,true);closeLightbox(null,true);}
+});
+
+// Scroll reveal
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.style.opacity='1';
+      e.target.style.transform='translateY(0)';
+    }
+  });
+},{threshold:.1});
+document.querySelectorAll('.product-card,.stat-item,.feature-item').forEach(el=>{
+  el.style.opacity='0';
+  el.style.transform='translateY(24px)';
+  el.style.transition='opacity .5s ease,transform .5s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
